@@ -1,0 +1,23 @@
+syntax = "proto2";
+package danmu;
+// ..\protoc-28.2-win64\bin\protoc.exe --python_out=. *.proto
+
+message BulletInfo {
+    optional string id = 1; // becomes awesomeField
+    optional string content = 2; // becomes awesomeField
+    optional string a3 = 3; // becomes awesomeField
+    optional string a4 = 4; // becomes awesomeField
+    optional string a5 = 5;
+    optional string showTime = 6;
+    optional string a7 = 7;
+    optional string a8 = 8;
+    optional string a9 = 9;
+}
+
+message Entry {
+    repeated BulletInfo bulletInfo = 2; // becomes awesomeField
+}
+
+message Danmu {
+    repeated Entry entry = 6; // becomes awesomeField
+}
