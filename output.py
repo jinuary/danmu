@@ -30,7 +30,7 @@ def write_xml(data, filename="export.xml"):
     tree = ET.ElementTree(root)
     output_xml = ET.tostring(root, encoding='utf-8', method='xml').decode()
 
-    print(output_xml)
+    # print(output_xml)
     # 将XML树写入xml文件
     tree.write(filename, encoding="utf-8", xml_declaration=True)
 

@@ -4,7 +4,7 @@ from datetime import date
 import requests
 import json
 
-from output import encode_data,write_xml
+from output import encode_data, write_xml
 
 
 # import pandas as pd
@@ -12,20 +12,21 @@ from output import encode_data,write_xml
 
 def request_url(url):
     headers = {
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-        "Cache-Control": "max-age=0",
-        "Connection": "keep-alive",
-        "Sec-Fetch-Dest": "document",
-        "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Site": "none",
-        "Sec-Fetch-User": "?1",
-        "Upgrade-Insecure-Requests": "1",
+        # "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+        # "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+        # "Cache-Control": "max-age=0",
+        # "Connection": "keep-alive",
+        # "Sec-Fetch-Dest": "document",
+        # "Sec-Fetch-Mode": "navigate",
+        # "Sec-Fetch-Site": "none",
+        # "Sec-Fetch-User": "?1",
+        # "Upgrade-Insecure-Requests": "1",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0",
-        "sec-ch-ua": '"Microsoft Edge";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "Windows",
-        "Accept-Encoding": "gzip, deflate, br"
+        "referer": 'https://www.mgtv.com/',
+        # "sec-ch-ua": '"Microsoft Edge";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+        # "sec-ch-ua-mobile": "?0",
+        # "sec-ch-ua-platform": "Windows",
+        # "Accept-Encoding": "gzip, deflate, br"
     }
 
     response = requests.request("GET", url, headers=headers)
@@ -44,7 +45,7 @@ def get_mgtv_danmu(num1, num2, page):
         # page = 2
         url = 'https://bullet-ws.hitv.com/bullet/tx/{}/{}/{}/{}/{}/{}.json'
         print("正在爬取第" + str(page) + "页")
-        danmuurl = url.format(today.year, today.month, 15, num1, num2, page)
+        danmuurl = url.format(today.year, today.month, 16, num1, num2, page)
 
         content = request_url(danmuurl)
         print(content)
@@ -71,7 +72,7 @@ def get_mgtv_danmu(num1, num2, page):
         except:
             result['v2_up_count'] = ''
         # details.append(result)
-        details.append(encode_data(round(result['time']/1000,3), result['content'], result['id']))
+        details.append(encode_data(round(result['time'] / 1000, 3), result['content'], result['id']))
     return details
 
 
@@ -95,11 +96,13 @@ def main():
     # data = count_danmu("015611", "19684401", 35)
     # data = count_danmu("161302", "19684736", 33)
     # data = count_danmu("155638", "19685391", 39)
-    data = count_danmu("082857", "19685311", 34)
+    # data = count_danmu("082857", "19685311", 34)
+    data = count_danmu("040524", "19685434", 39)
 
     print(data)
 
-    write_xml(data,"mg.xml")
+    write_xml(data, "mg.xml")
+
 
 if __name__ == '__main__':
     main()
