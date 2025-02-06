@@ -142,11 +142,11 @@ function getDanmuList(tvid,length){
 //     , o = t.tvid + "_" + r + "_" + e + "_" + s + ".br"
 //     , x = "//cmts.iqiyi.com/bullet/" + n.substr(n.length - 4, 2) + "/" + n.substr(n.length - 2, 2) + "/" + o;
 
-var hello = 'Hello world!';
-console.log(hello);
-// 4303318963025000_60_1cbzuw1259a e09440ab
-// 4303318963025000_60_2cbzuw1259a e09440ab
-var sign = main("4303318963025000_60_2cbzuw1259a").slice(-8)
-console.log(sign)
-
-getDanmuList(4303318963025000,43)
+// var hello = 'Hello world!';
+// console.log(hello);
+// // 4303318963025000_60_1cbzuw1259a e09440ab
+// // 4303318963025000_60_2cbzuw1259a e09440ab
+// var sign = main("4303318963025000_60_2cbzuw1259a").slice(-8)
+// console.log(sign)
+//
+// getDanmuList(4303318963025000,43)
