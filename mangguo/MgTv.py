@@ -2,8 +2,8 @@ import json
 import re
 import time
 import requests
-from output import encode_data, write_xml
-from utils import request_url, request_url_json
+from common.output import encode_data, write_xml
+from common.utils import request_url_json
 
 
 class MgTv:

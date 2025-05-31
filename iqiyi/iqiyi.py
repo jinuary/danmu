@@ -6,7 +6,7 @@ import requests
 
 import danmu_pb2
 import execjs
-from output import encode_data, write_xml
+from common.output import encode_data, write_xml
 
 
 def get_danmu_data(tvid, nums):
@@ -69,8 +69,8 @@ def get_tvid_danmu(tvid, time, file_name):
 
 
 def main():
-    url = "https://mesh.if.iqiyi.com/portal/lw/search/homePageV3?key=漂白"
-    iqiyiidid = "kjnf5fzfi0"
+    url = "https://mesh.if.iqiyi.com/portal/lw/search/homePageV3?key=淮水竹亭"
+    iqiyiidid = "1c00si2pzhw"
     # result = get_danmu_data("4303318963025000", 44)
     # result = get_danmu_data("7114108093346600", 47)
     content = requests.get(url).content

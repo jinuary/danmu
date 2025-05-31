@@ -4,7 +4,7 @@ from datetime import date
 import requests
 import json
 
-from output import encode_data, write_xml
+from common.output import encode_data, write_xml
 
 
 # import pandas as pd
