@@ -7,5 +7,13 @@ class DanmuScrapers:
         pass
 
     @abstractmethod
-    def search(self, name, vid=None, cid=None):
+    def search(self, name, cid=None, vid=None):
+        pass
+
+    @abstractmethod
+    def get_doc_info(self, cid, name, vid=None):
+        pass
+
+    @abstractmethod
+    def get_video_list(self, cid, vid=None):
         pass

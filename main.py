@@ -1,5 +1,7 @@
 from pathlib import Path
 
+from common.DocInfo import DocInfo
+from common.VideoInfo import VideoInfo
 from common.output import write_xml
 from tencent.TencentTv import TencentTv
 
@@ -14,9 +16,11 @@ def write(danmu_data, file_name, dir_name):
 
 def main():
     scrapers = TencentTv()
+    doc_list = []
 
-    doc_list = scrapers.search("仙逆", vid="q4101tkrmk8")
-
+    # video_list = scrapers.get_video_list(cid="mzc00200iyue5he", vid="k410187y6uq")
+    doc_info = doc_list.append(scrapers.get_doc_info("mzc00200iyue5he", "长安的荔枝"))
+    # doc_list = scrapers.search("长安的荔枝", cid="mzc00200iyue5he")
     print(doc_list)
 
     for item in doc_list:
